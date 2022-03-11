@@ -13,14 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        print(countPositivesSumNegatives(arrayOf()))
+        print(litres(6.7))
 
     }
 
-    fun countPositivesSumNegatives(input: Array<Int>?): Array<Int> {
-        if(input == null || input.size == 0) return emptyArray()
-        val (positive, negative) = input.partition { it>0 }
-        return arrayOf(positive.count(), negative.sum())
+    fun litres(time: Double): Int {
+        return (time/2).toInt()
     }
 
 
