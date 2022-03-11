@@ -2,7 +2,7 @@ package com.example.myapplication
 
 import java.lang.Math.abs
 
-class Kata2_Arrays_ForEach_Patrition_Filter {
+class Kata2_ArraysPatrition_Filter {
 
     fun countPositivesSumNegatives0(input: Array<Int>?): Array<Int> {
         if(input == null || input.isEmpty()) return emptyArray()

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.myapplication.databinding.ActivityMainBinding
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,13 +14,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        print(litres(6.7))
+        val str1 = "Поцелуй Мой Блестящий Зад"
+        val num1 = 1298
+        val arr1 = intArrayOf(1,2,3,4,5)
+
+        print(twiceAsOld(36,7))  //22
+        print(twiceAsOld(55,30)) //5
+        print(twiceAsOld(29,0))
+
 
     }
 
-    fun litres(time: Double): Int {
-        return (time/2).toInt()
+    fun twiceAsOld(dadYearsOld: Int, sonYearsOld: Int): Int {
+        return try{
+            if(dadYearsOld/sonYearsOld < 2){
+                sonYearsOld*2 - dadYearsOld
+            } else dadYearsOld-sonYearsOld*2
+        } catch (e: ArithmeticException) {
+            dadYearsOld
+        }
     }
+
 
 
 
