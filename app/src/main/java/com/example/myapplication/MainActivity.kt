@@ -18,23 +18,25 @@ class MainActivity : AppCompatActivity() {
         val num1 = 1298
         val arr1 = intArrayOf(1,2,3,4,5)
 
-        print(twiceAsOld(36,7))  //22
-        print(twiceAsOld(55,30)) //5
-        print(twiceAsOld(29,0))
+        print(replace("Hiiiiia"))          //61000
+        print(replace("Wowowowa"))            //3601000
+        print(replace("alabAAAama"))            //3661000
 
 
     }
 
-    fun twiceAsOld(dadYearsOld: Int, sonYearsOld: Int): Int {
-        return try{
-            if(dadYearsOld/sonYearsOld < 2){
-                sonYearsOld*2 - dadYearsOld
-            } else dadYearsOld-sonYearsOld*2
-        } catch (e: ArithmeticException) {
-            dadYearsOld
+    fun replace(s: String): String = s.replace(Regex("[aeiouAEIOU]"),"!")
+
+    fun replace1(s: String): String = s.lowercase().replace(Regex("[aeiou]")) {
+        when (it.value) {
+            "a" -> "!"
+            "e" -> "!"
+            "i" -> "!"
+            "o" -> "!"
+            "u" -> "!"
+            else -> it.value
         }
     }
-
 
 
 
@@ -60,6 +62,10 @@ class MainActivity : AppCompatActivity() {
             str = "$str $a"
         }
         Log.d("MyLog", "$str")
+    }
+
+    fun print(item: Boolean){
+        Log.d("MyLog", item.toString())
     }
 }
 
