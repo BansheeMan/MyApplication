@@ -18,25 +18,37 @@ class MainActivity : AppCompatActivity() {
         val num1 = 1298
         val arr1 = intArrayOf(1,2,3,4,5)
 
-        print(replace("Hiiiiia"))          //61000
-        print(replace("Wowowowa"))            //3601000
-        print(replace("alabAAAama"))            //3661000
+        val map1 = mapOf(
+            "Java" to 10,
+            "Ruby" to 80,
+            "Python" to 65)
 
+        val map2 = mapOf(
+            "Hindi" to 60,
+            "Dutch" to 93,
+            "Greek" to 71)
+
+        val map3 = mapOf(
+            "C++" to 50,
+            "ASM" to 10,
+            "Haskell" to 20)
+
+       print(myLanguages(map1))
+       print(myLanguages(map2))
+       print(myLanguages(map3))
 
     }
 
-    fun replace(s: String): String = s.replace(Regex("[aeiouAEIOU]"),"!")
-
-    fun replace1(s: String): String = s.lowercase().replace(Regex("[aeiou]")) {
-        when (it.value) {
-            "a" -> "!"
-            "e" -> "!"
-            "i" -> "!"
-            "o" -> "!"
-            "u" -> "!"
-            else -> it.value
+    private fun myLanguages(s: Map<String, Int>): Map<String, Int> {
+        val newMap = mutableMapOf<String, Int>()
+        for((key,  value) in s){
+            if (value >= 60){
+                newMap += key to value
+            }
         }
+    return s
     }
+
 
 
 
@@ -66,6 +78,15 @@ class MainActivity : AppCompatActivity() {
 
     fun print(item: Boolean){
         Log.d("MyLog", item.toString())
+    }
+
+    private fun print(myMap: Map<String, Int>){
+        var str = "MAP: "
+        for((key,  value) in myMap){
+            str += "$key => $value | "
+
+        }
+        Log.d("MyLog", str)
     }
 }
 
